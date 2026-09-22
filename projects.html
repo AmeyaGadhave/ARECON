@@ -1,0 +1,1000 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects — Sheth Architects</title>
+<meta name="description" content="A curated portfolio of residential, civic, hospitality and masterplanning projects by Sheth Architects, Mumbai." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  /* ========== ADVANCED PROJECTS PAGE STYLING ========== */
+
+  .projects-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #fafaf8;
+    perspective: 1200px;
+    z-index: 5;
+    transform-style: preserve-3d;
+    padding: 6rem 1.5rem;
+  }
+
+  .projects-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(168, 73, 47, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(168, 73, 47, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+    transform: translateZ(-30px);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 800px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+    transform-style: preserve-3d;
+    transform: translateZ(20px);
+  }
+
+  .hero-content .eyebrow {
+    display: inline-flex;
+    margin-bottom: 1rem;
+    animation: slideDown 0.8s ease-out 0.3s both;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+    color: #14120f;
+    font-weight: 600;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    color: var(--color-ink-soft);
+    max-width: 550px;
+    margin: 0 auto;
+    line-height: 1.6;
+    animation: fadeInUp 0.8s ease-out 0.5s both;
+  }
+
+
+  /* ===== PROJECTS SECTION WITH SIDEBAR LAYOUT ===== */
+  .projects-section {
+    padding-top: 3rem;
+    padding-bottom: clamp(3rem, 5vw, 5rem);
+    padding-left: clamp(1.5rem, 4vw, 3rem);
+    padding-right: clamp(1.5rem, 4vw, 3rem);
+    position: relative;
+    background: #ffffff;
+    z-index: 3;
+    margin-top: 4rem;
+  }
+
+  .projects-section .container {
+    display: grid !important;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(4rem, 6vw, 6rem);
+    align-items: flex-start;
+    max-width: 1600px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+    align-self: start;
+    padding-top: 1rem;
+    position: sticky;
+    top: 80px;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: clamp(2rem, 4vw, 3rem);
+    width: 100%;
+  }
+
+  @media (max-width: 1200px) {
+    .project-grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+  }
+
+  @media (max-width: 900px) {
+    .projects-section .container {
+      grid-template-columns: 160px 1fr;
+      gap: clamp(2rem, 4vw, 4rem);
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .projects-section .container {
+      grid-template-columns: 1fr;
+    }
+
+    .filter-bar {
+      margin-bottom: 2.5rem;
+      gap: 0.8rem;
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: clamp(1.2rem, 2vw, 1.8rem);
+    }
+  }
+
+  .filter-btn {
+    padding: 0.7rem 1.4rem;
+    border: 1.5px solid #e8e6e2;
+    background: transparent;
+    color: var(--color-ink);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-align: left;
+    width: 100%;
+  }
+
+  .filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--color-accent);
+    z-index: -1;
+    transition: left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .filter-btn:hover {
+    border-color: var(--color-accent);
+    color: white;
+    box-shadow: 0 4px 12px rgba(168, 73, 47, 0.12);
+  }
+
+  .filter-btn:hover::before {
+    left: 0;
+  }
+
+  .filter-btn.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: white;
+    box-shadow: 0 6px 16px rgba(168, 73, 47, 0.18);
+  }
+
+  /* ===== PROJECT GRID WITH Z-INDEX LAYERS ===== */
+  /* Grid layout handled above with sidebar */
+
+  /* Enhanced Project Card with Z-Index Depth */
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 0;
+    transform: translateY(25px);
+    will-change: transform, opacity;
+    animation: cardFadeInUp 0.7s ease-out both;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .project-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+  }
+
+  /* Staggered reveal animation */
+  .project-card:nth-child(1) { animation-delay: 0.08s; }
+  .project-card:nth-child(2) { animation-delay: 0.12s; }
+  .project-card:nth-child(3) { animation-delay: 0.16s; }
+  .project-card:nth-child(4) { animation-delay: 0.2s; }
+  .project-card:nth-child(5) { animation-delay: 0.24s; }
+  .project-card:nth-child(6) { animation-delay: 0.28s; }
+  .project-card:nth-child(7) { animation-delay: 0.32s; }
+  .project-card:nth-child(8) { animation-delay: 0.36s; }
+  .project-card:nth-child(9) { animation-delay: 0.4s; }
+  .project-card:nth-child(10) { animation-delay: 0.44s; }
+  .project-card:nth-child(11) { animation-delay: 0.48s; }
+  .project-card:nth-child(12) { animation-delay: 0.52s; }
+
+  @keyframes cardFadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Card Figure with Z-Index Shadow Effects */
+  .project-card figure {
+    position: relative;
+    margin: 0 0 1.3rem 0;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 3/4;
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.08),
+      0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 2;
+  }
+
+  .project-card:hover figure {
+    box-shadow:
+      0 4px 12px rgba(168, 73, 47, 0.15),
+      0 12px 28px rgba(168, 73, 47, 0.1);
+  }
+
+  .project-card figure::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%, rgba(0,0,0,0.1) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .project-card figure::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(168, 73, 47, 0);
+    z-index: 1;
+    transition: background 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .project-card:hover figure::after {
+    background: rgba(168, 73, 47, 0.15);
+  }
+
+  .ph-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(135deg, #f6f4f1 0%, #ede9e0 100%);
+    overflow: hidden;
+  }
+
+  .project-card figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .ph-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.8rem;
+    color: var(--color-ink-faint);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(1);
+  }
+
+  .project-card:hover .ph-inner {
+    transform: scale(1.1);
+    color: var(--color-accent);
+  }
+
+  .ph-inner svg {
+    width: 48px;
+    height: 48px;
+    stroke-width: 1;
+    transition: all 0.4s ease-out;
+  }
+
+  .project-card:hover .ph-inner svg {
+    width: 56px;
+    height: 56px;
+  }
+
+  /* Card Content */
+  .card-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.7rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+    transition: all 0.3s ease-out;
+  }
+
+  .project-card:hover .card-tag {
+    color: var(--color-accent-dark);
+  }
+
+  .project-card h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+    color: #14120f;
+    font-weight: 600;
+  }
+
+  .project-card h3 svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translate(-3px, 2px);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .project-card:hover h3 {
+    color: var(--color-accent);
+  }
+
+  .project-card:hover h3 svg {
+    opacity: 1;
+    transform: translate(3px, -2px);
+  }
+
+  .card-loc {
+    font-size: 0.9rem;
+    color: #8b8683;
+    transition: all 0.3s ease-out;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.5s both;
+    line-height: 1.4;
+  }
+
+  .project-card:hover .card-loc {
+    color: var(--color-ink);
+  }
+
+  /* Stagger animations on page load */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ===== PARALLAX SECTIONS ===== */
+  .projects-divider {
+    padding: clamp(5rem, 8vw, 8rem) clamp(1.5rem, 4vw, 3rem);
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .divider-content {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: transform, opacity;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .divider-content.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .divider-content h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+    color: #14120f;
+    font-weight: 600;
+  }
+
+  .divider-content p {
+    font-size: 1rem;
+    color: #8b8683;
+    line-height: 1.6;
+  }
+
+  /* Loading Animation */
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  .project-card[data-loading] figure {
+    background: linear-gradient(90deg, #f0ede6 25%, #faf9f6 50%, #f0ede6 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .projects-hero {
+      min-height: 70vh;
+      padding: 2rem 0;
+    }
+
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .project-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .filter-bar {
+      gap: 0.8rem;
+      margin-bottom: 4rem;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header on-light">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">ARECON.in</span>
+      <span class="brand-sub">Architecture · Interiors · Masterplanning</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="header-cta">
+      <a href="contact.html" class="btn">ARECON.ai</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="solutions.html">Solutions</a>
+  <a href="contact.html">Contact Us</a>
+  <div class="mobile-nav-foot">
+    <span>Mumbai · Jalgaon · Nagpur</span>
+    <span>+91 22 4000 1200</span>
+  </div>
+</nav>
+
+<!-- Enhanced scroll reveal animations for project cards -->
+<script>
+(function() {
+  // Staggered reveal for project cards
+  const projectCards = document.querySelectorAll('.project-card[data-reveal]');
+  const cardRevealDelay = 50; // milliseconds between each card reveal
+
+  if ('IntersectionObserver' in window && projectCards.length) {
+    const cardIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('is-visible');
+              cardIO.unobserve(entry.target);
+            }, index * cardRevealDelay);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    projectCards.forEach((card) => {
+      cardIO.observe(card);
+    });
+  }
+
+  // Smooth scroll behavior with reduced motion preference
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.style.scrollBehavior = 'smooth';
+  }
+})();
+</script>
+
+<!-- PROJECTS SECTION -->
+<section class="projects-section">
+  <div class="container">
+    <div class="filter-bar" data-reveal>
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+      <button class="filter-btn" data-filter="architecture">Architecture</button>
+      <button class="filter-btn" data-filter="interior">Interior</button>
+      <button class="filter-btn" data-filter="pmc">PMC</button>
+      <button class="filter-btn" data-filter="surveying">Surveying</button>
+    </div>
+
+    <div class="project-grid">
+<a class="project-card" data-category="healthcare" href="projects/healthcare/bmc-general-hospital.html" data-reveal>
+        <figure>
+          <img src="../../assets/images/projects/healthcare/bmc-chandivali/image (6)_web.webp" alt="BMC General Hospital And Staff Quarter Building">
+        </figure>
+        <span class="card-tag">Healthcare</span>
+        <h3>BMC General Hospital And Staff Quarter Building <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="healthcare" href="projects/healthcare/indira-gandhi-hospital.html" data-reveal>
+        <figure>
+          <img src="assets/images/projects/healthcare/indira-gandhi/Gemini_Generated_Image_is8wz6is8wz6is8w.png" alt="Indira Gandhi Hospital">
+        </figure>
+        <span class="card-tag">Healthcare</span>
+        <h3>Indira Gandhi Hospital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="healthcare" href="projects/healthcare/christian-hospital-bissamcuttack.html" data-reveal>
+        <figure>
+          <img src="assets/images/projects/healthcare/christian-hospital/chb-hospital-view-01-enhanced.png" alt="Christian Hospital Bissamcuttack">
+        </figure>
+        <span class="card-tag">Healthcare</span>
+        <h3>Christian Hospital Bissamcuttack <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="healthcare" href="projects/healthcare/sankalp-hospital-extension.html" data-reveal>
+        <figure>
+          <img src="assets/images/projects/healthcare/sankalp/fch1.jpg" alt="SANKALP Hospital Extension">
+        </figure>
+        <span class="card-tag">Healthcare</span>
+        <h3>SANKALP Hospital Extension <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      
+
+      <a class="project-card" data-category="healthcare" href="projects/healthcare/makunda-hospital.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">Healthcare</span>
+        <h3>MAKUNDA Hospital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="healthcare" href="projects/healthcare/aurelion-hospital.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">Healthcare</span>
+        <h3>Aurelion Hospital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="healthcare" href="projects/healthcare/west-bengal-hospitals.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">Healthcare</span>
+        <h3>West Bengal Hospitals <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        <span class="card-loc">West Bengal — 06 Divisions</span>
+      </a>
+
+      <a class="project-card" data-category="healthcare" href="projects/healthcare/echelon-hospital.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">Healthcare</span>
+        <h3>Echelon Hospital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="healthcare" href="projects/healthcare/fertility-ivf-centre.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">Healthcare</span>
+        <h3>Fertility (IVF) Centre <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="healthcare" href="projects/healthcare/homi-bhabha-cancer-hospital.html" data-reveal>
+        <figure>
+          <img src="assets/images/projects/healthcare/homi-bhabha/Homi Bhabha Cancer Hospital and Research Centre, Medicity, Mohali - Contact No (1)_enhanced.jpg" alt="Homi Bhabha Cancer Hospital & Research Centre">
+        </figure>
+        <span class="card-tag">Healthcare</span>
+        <h3>Homi Bhabha Cancer Hospital & Research Centre <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="interior" href="projects/interior/cozzet-hotel.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">Interior</span>
+        <h3>Cozzet Hotel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="interior" href="projects/interior/sbi-mutual-fund-bkc.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 3l18 18M21 3L3 21M3 12h18M12 3v18"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">Interior</span>
+        <h3>SBI Mutual Fund Head Office (BKC) <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="interior" href="projects/interior/echelon-hospital-interior.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">Interior</span>
+        <h3>Echelon Hospital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="interior" href="projects/interior/cassiobury-park-watford.html" data-reveal>
+        <figure>
+          <img src="assets/images/projects/interior/cassiobury-park-watford.jpg" alt="Cassiobury Park Watford">
+        </figure>
+        <span class="card-tag">Interior</span>
+        <h3>Cassiobury Park <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="interior" href="projects/interior/fertility-center-interior.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">Interior</span>
+        <h3>Fertility Center <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+
+      </a>
+
+      <!-- PMC CATEGORY PROJECTS -->
+      <a class="project-card" data-category="pmc" href="projects/healthcare/bmc-general-hospital.html" data-reveal>
+        <figure>
+          <img src="assets/images/projects/healthcare/bmc-chandivali/image (6)_web.webp" alt="BMC General Hospital And Staff Quarter Building">
+        </figure>
+        <span class="card-tag">PMC</span>
+        <h3>BMC General Hospital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+
+      </a>
+
+      <a class="project-card" data-category="pmc" href="projects/healthcare/sankalp-hospital-extension.html" data-reveal>
+        <figure>
+          <img src="assets/images/projects/healthcare/sankalp/fch1.jpg" alt="SANKALP Hospital Extension">
+        </figure>
+        <span class="card-tag">PMC</span>
+        <h3>SANKALP Hospital Extension <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+
+      </a>
+
+      <a class="project-card" data-category="pmc" href="projects/healthcare/indira-gandhi-hospital.html" data-reveal>
+        <figure>
+          <img src="assets/images/projects/healthcare/indira-gandhi/Gemini_Generated_Image_is8wz6is8wz6is8w.png" alt="Indira Gandhi Hospital">
+        </figure>
+        <span class="card-tag">PMC</span>
+        <h3>Indira Gandhi Hospital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+
+      </a>
+
+      <a class="project-card" data-category="pmc" href="projects/healthcare/aurelion-hospital.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">PMC</span>
+        <h3>Aurelion Hospital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+
+      </a>
+
+      <a class="project-card" data-category="pmc" href="projects/healthcare/fertility-ivf-centre.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">PMC</span>
+        <h3>Fertility (IVF) Centre <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+
+      </a>
+
+      <a class="project-card" data-category="pmc" href="projects/healthcare/echelon-hospital.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">PMC</span>
+        <h3>Echelon Hospital <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+
+      </a>
+
+      <a class="project-card" data-category="pmc" href="projects/interior/cozzet-hotel.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <div class="ph-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/>
+              </svg>
+              <span>Project</span>
+            </div>
+          </div>
+        </figure>
+        <span class="card-tag">PMC</span>
+        <h3>Cozzet Hotel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+
+      </a>
+
+      <a class="project-card" data-category="surveying" href="projects/surveying/hotel-resort-madh-island.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <img src="assets/images/surveying/madh-hotel.png" alt="Hotel Resort Madh Island">
+          </div>
+        </figure>
+        <span class="card-tag">Surveying</span>
+        <h3>Hotel Resort Madh Island <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="surveying" href="projects/surveying/ahura-centre-andheri.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <img src="assets/images/surveying/ahura-center.png" alt="Ahura Centre">
+          </div>
+        </figure>
+        <span class="card-tag">Surveying</span>
+        <h3>Ahura Centre <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="surveying" href="projects/surveying/zen-one-khardi.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <img src="assets/images/surveying/zen-one.png" alt="Zen-One">
+          </div>
+        </figure>
+        <span class="card-tag">Surveying</span>
+        <h3>Zen-One <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        
+      </a>
+
+      <a class="project-card" data-category="surveying" href="projects/surveying/westin-hotel-powai.html" data-reveal>
+        <figure>
+          <div class="ph-img ratio-4-5">
+            <img src="assets/images/surveying/westin-hotel.png" alt="Westin Hotel">
+          </div>
+        </figure>
+        <span class="card-tag">Surveying</span>
+        <h3>Westin Hotel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></h3>
+        <span class="card-loc">Powai, Mumbai — Completed</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER SECTION -->
+<section class="projects-divider">
+  <div class="container">
+    <div class="divider-content">
+      <h2>Every space crafted with intention</h2>
+      <p>From concept through delivery, we bring architectural vision to life with meticulous attention to detail and a deep understanding of human experience.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container" data-reveal>
+    <span class="eyebrow" style="justify-content:center;">Let's Build</span>
+    <h2 style="margin-top:1rem;">Don't see your typology here?</h2>
+    <p>We take on a limited number of new commissions each year — tell us about your site.</p>
+    <a href="contact.html" class="btn btn-light">Start a Project
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-mark">ARECON.in</span>
+        <p>A Mumbai-based architecture and interior design practice delivering residential, civic, hospitality and masterplanning work across India since 1994.</p>
+        <div class="social-row">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg></a>
+
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="solutions.html">Architecture</a></li>
+          <li><a href="solutions.html">Interior Design</a></li>
+          <li><a href="solutions.html">Masterplanning</a></li>
+          <li><a href="solutions.html">Project Management</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address>1106, Haware infotech Park, sector 30A,<br>Vashi, Navi Mumbai 400703</address>
+        <ul>
+          <li><a href="mailto:ops@shetharchitects.in">ops@shetharchitects.in</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> ARECON.in All rights reserved.</span>
+      <div class="legal-links"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

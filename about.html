@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Sheth Architects</title>
+<meta name="description" content="Founded in 1994, Sheth Architects is a Mumbai practice of 80+ professionals delivering architecture, interiors and masterplanning across India." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=20260921115702" />
+<style>
+  /* ========== PREMIUM ABOUT PAGE STYLING ========== */
+
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* PREMIUM HERO SECTION */
+  .about-hero {
+    position: relative;
+    min-height: 120vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffffff 0%, #f9f7f3 100%);
+    padding: 6rem 0;
+  }
+
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(circle at 10% 30%, rgba(168, 73, 47, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 90% 70%, rgba(168, 73, 47, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .about-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    padding: 0 2rem;
+    text-align: center;
+    animation: heroFadeIn 1.2s ease-out 0.2s both;
+  }
+
+  @keyframes heroFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .about-hero .eyebrow {
+    animation: slideDown 0.8s ease-out 0.3s both;
+  }
+
+  .about-hero h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.15;
+    margin-top: 1.5rem;
+    background: linear-gradient(135deg, #14120f 0%, #a8492f 50%, #55524c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: slideUp 1s ease-out 0.4s both;
+  }
+
+  .about-hero p {
+    font-size: 1.25rem;
+    color: var(--color-ink-soft);
+    max-width: 700px;
+    margin: 1.5rem auto 0;
+    line-height: 1.8;
+    animation: slideUp 1s ease-out 0.5s both;
+  }
+
+  /* PREMIUM SECTIONS */
+  .about-section {
+    padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-section.dark {
+    background: linear-gradient(135deg, #14120f 0%, #2a2721 100%);
+    color: #ffffff;
+  }
+
+  .about-section.light {
+    background: #fafaf8;
+  }
+
+  .section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .premium-heading {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: slideUp 0.8s ease-out 0.3s forwards;
+  }
+
+  .about-section.dark .premium-heading {
+    color: #ffffff;
+  }
+
+  .premium-text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    max-width: 650px;
+    opacity: 0;
+    animation: slideUp 0.8s ease-out 0.5s forwards;
+  }
+
+  /* STORY SECTION WITH 3D GRID */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .story-content {
+    opacity: 0;
+    animation: slideUp 0.8s ease-out 0.4s forwards;
+  }
+
+  .story-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeInScale 1s ease-out 0.6s forwards;
+  }
+
+  .story-image {
+    aspect-ratio: 3/4;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f0ede6 0%, #ede9e0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-ink-faint);
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.08),
+      0 20px 60px rgba(0, 0, 0, 0.06);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(0) rotateZ(-2deg);
+  }
+
+  .story-image:nth-child(2) {
+    transform: translateY(40px) rotateZ(2deg);
+  }
+
+  .story-image:hover {
+    transform: translateY(-8px) rotateZ(0deg);
+    box-shadow:
+      0 20px 50px rgba(168, 73, 47, 0.12),
+      0 40px 100px rgba(168, 73, 47, 0.08);
+  }
+
+  .story-image svg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+  }
+
+  /* VALUES GRID - PREMIUM CARDS */
+  .values-premium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+
+  .value-premium-card {
+    padding: 3rem;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid var(--color-line);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .value-premium-card:nth-child(1) { animation: slideUp 0.8s ease-out 0.4s forwards; }
+  .value-premium-card:nth-child(2) { animation: slideUp 0.8s ease-out 0.5s forwards; }
+  .value-premium-card:nth-child(3) { animation: slideUp 0.8s ease-out 0.6s forwards; }
+
+  .value-premium-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent), transparent);
+    border-radius: 12px 12px 0 0;
+  }
+
+  .value-premium-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(168, 73, 47, 0.1);
+    border-color: var(--color-accent);
+  }
+
+  .value-premium-card .num {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .value-premium-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--color-ink);
+  }
+
+  .value-premium-card p {
+    color: var(--color-ink-soft);
+    line-height: 1.7;
+  }
+
+  /* PREMIUM TIMELINE */
+  .premium-timeline {
+    position: relative;
+    padding: 3rem 0;
+  }
+
+  .timeline-item-premium {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-line);
+    opacity: 0;
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .timeline-item-premium:last-child {
+    border-bottom: none;
+  }
+
+  .timeline-item-premium:nth-child(1) { animation-delay: 0.3s; }
+  .timeline-item-premium:nth-child(2) { animation-delay: 0.4s; }
+  .timeline-item-premium:nth-child(3) { animation-delay: 0.5s; }
+  .timeline-item-premium:nth-child(4) { animation-delay: 0.6s; }
+  .timeline-item-premium:nth-child(5) { animation-delay: 0.7s; }
+
+  .timeline-year {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    position: relative;
+  }
+
+  .timeline-year::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -80px;
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+
+  .timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-ink);
+  }
+
+  .timeline-content p {
+    color: var(--color-ink-soft);
+    line-height: 1.7;
+  }
+
+  /* STATS SECTION */
+  .stats-grid-premium {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .stat-card-premium {
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    opacity: 0;
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .stat-card-premium:nth-child(1) { animation-delay: 0.3s; }
+  .stat-card-premium:nth-child(2) { animation-delay: 0.4s; }
+  .stat-card-premium:nth-child(3) { animation-delay: 0.5s; }
+  .stat-card-premium:nth-child(4) { animation-delay: 0.6s; }
+  .stat-card-premium:nth-child(5) { animation-delay: 0.7s; }
+
+  .stat-card-premium strong {
+    display: block;
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-card-premium span {
+    font-size: 0.95rem;
+    color: #d99b83;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .about-hero {
+      min-height: 80vh;
+      padding: 4rem 0;
+    }
+
+    .story-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .intro-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .values-premium-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-item-premium {
+      grid-template-columns: 80px 1fr;
+      gap: 2rem;
+    }
+
+    .about-section {
+      padding: 4rem 0;
+    }
+  }
+
+  /* ========== SCROLL REVEAL ANIMATIONS ========== */
+  [data-scroll-reveal] {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  [data-scroll-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered reveal for sections with child elements */
+  [data-scroll-stagger] > * {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  [data-scroll-stagger].is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  [data-scroll-stagger].is-visible > :nth-child(1) { transition-delay: 0.1s; }
+  [data-scroll-stagger].is-visible > :nth-child(2) { transition-delay: 0.25s; }
+  [data-scroll-stagger].is-visible > :nth-child(3) { transition-delay: 0.4s; }
+  [data-scroll-stagger].is-visible > :nth-child(4) { transition-delay: 0.55s; }
+  [data-scroll-stagger].is-visible > :nth-child(5) { transition-delay: 0.7s; }
+
+  /* Premium parallax tilt on scroll */
+  [data-scroll-parallax] {
+    transition: transform 0.6s ease-out;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header on-light">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">ARECON.in</span>
+      <span class="brand-sub">ARCHITECTURE · INTERIORS · MASTERPLANNING</span>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="solutions.html">Solutions</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="header-cta">
+      <a href="contact.html" class="btn">ARECON.ai</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="solutions.html">Solutions</a>
+  <a href="contact.html">Contact Us</a>
+  <div class="mobile-nav-foot">
+    <span>Mumbai · Jalgaon · Nagpur</span>
+    <span>+91 22 4000 1200</span>
+  </div>
+</nav>
+
+<!-- PREMIUM HERO SECTION -->
+<section class="about-hero" style="position: relative; min-height: 100vh; background: #ffffff; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+  <canvas id="about-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.6;"></canvas>
+
+  <!-- Overlay with reduced opacity for better background visibility -->
+  <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0.85) 100%); z-index: 5;"></div>
+
+  <div class="about-hero-content" style="position: relative; z-index: 10; text-align: center; max-width: 1100px; padding: 4rem 3rem;">
+    <span class="eyebrow" style="color: #a8492f; display: inline-block; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1rem; font-weight: 700;">Story Since 2006</span>
+
+    <h1 style="font-size: clamp(2.5rem, 6.5vw, 4.5rem); font-family: 'Fraunces', Georgia, serif; line-height: 1.2; color: #14120f; margin: 0; text-shadow: none; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 1.5rem;">Architecture That Responds to Place</h1>
+
+    <p style="font-size: clamp(0.95rem, 1.5vw, 1.15rem); color: #55524c; max-width: 850px; margin-left: auto; margin-right: auto; line-height: 1.8; font-weight: 400; letter-spacing: 0.003em; margin-bottom: 0;">A practice of 80+ professionals delivering context-sensitive design across residential, civic, hospitality and masterplanning work — spanning 21+ million square feet across India.</p>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  const canvas = document.getElementById('about-canvas');
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.shadowMap.enabled = true;
+
+  const scene = new THREE.Scene();
+  scene.background = null; // Transparent
+  scene.fog = new THREE.Fog(0xffffff, 40, 80);
+
+  const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 200);
+  camera.position.set(0, 8, 20);
+  camera.lookAt(0, 0, 0);
+
+  // Simple ground
+  const groundGeo = new THREE.PlaneGeometry(200, 200);
+  const groundMat = new THREE.MeshStandardMaterial({ color: 0xf5f2ed, roughness: 0.95, metalness: 0 });
+  const ground = new THREE.Mesh(groundGeo, groundMat);
+  ground.rotation.x = -Math.PI / 2;
+  ground.receiveShadow = true;
+  scene.add(ground);
+
+  // Minimal grid
+  const grid = new THREE.GridHelper(200, 200, 0xe0d9cf, 0xf0ebe5);
+  grid.position.y = 0.01;
+  grid.material.opacity = 0.15;
+  grid.material.transparent = true;
+  scene.add(grid);
+
+  // Materials - minimal palette
+  const lightMat = new THREE.MeshStandardMaterial({ color: 0xddd5cc, roughness: 0.7, metalness: 0.1 });
+  const midMat = new THREE.MeshStandardMaterial({ color: 0xc9b8b0, roughness: 0.75, metalness: 0.05 });
+  const accentMat = new THREE.MeshStandardMaterial({ color: 0xa8492f, roughness: 0.5, metalness: 0.2 });
+
+  // Simple geometric forms - subtle and minimal
+
+  // Form 1 - Tall element (left)
+  {
+    const geo = new THREE.BoxGeometry(1.5, 6, 1.5);
+    const mesh = new THREE.Mesh(geo, lightMat);
+    mesh.position.set(-5, 3, -2);
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+    scene.add(mesh);
+  }
+
+  // Form 2 - Center vertical
+  {
+    const geo = new THREE.CylinderGeometry(1.2, 1.4, 5.5, 16);
+    const mesh = new THREE.Mesh(geo, midMat);
+    mesh.position.set(0, 2.75, 0);
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+    scene.add(mesh);
+  }
+
+  // Form 3 - Right element
+  {
+    const geo = new THREE.BoxGeometry(1.8, 4, 1.8);
+    const mesh = new THREE.Mesh(geo, lightMat);
+    mesh.position.set(5.5, 2, 1);
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+    scene.add(mesh);
+  }
+
+  // Form 4 - Accent plane
+  {
+    const geo = new THREE.BoxGeometry(10, 0.12, 6);
+    const mesh = new THREE.Mesh(geo, accentMat);
+    mesh.position.set(0, 1.2, -1);
+    mesh.castShadow = true;
+    scene.add(mesh);
+  }
+
+  // Subtle lighting
+  const ambient = new THREE.AmbientLight(0xffffff, 0.85);
+  scene.add(ambient);
+
+  const keyLight = new THREE.DirectionalLight(0xffffff, 0.7);
+  keyLight.position.set(10, 10, 8);
+  keyLight.castShadow = true;
+  keyLight.shadow.mapSize.set(1024, 1024);
+  scene.add(keyLight);
+
+  const accentLight = new THREE.PointLight(0xa8492f, 0.4, 20);
+  accentLight.position.set(-6, 4, 3);
+  scene.add(accentLight);
+
+  function resize() {
+    const w = window.innerWidth, h = window.innerHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const clock = new THREE.Clock();
+  function animate() {
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime() * 0.15;
+
+    // Very subtle movement
+    camera.position.x = Math.sin(t) * 1.5;
+    camera.position.z = 20 + Math.cos(t * 0.7) * 1;
+    camera.lookAt(0, 1, 0);
+
+    renderer.render(scene, camera);
+  }
+  animate();
+})();
+</script>
+
+<!-- STORY SECTION -->
+<section class="about-section light">
+  <div class="section-container">
+    <span class="eyebrow">Our Journey</span>
+    <h2 class="premium-heading">From one room to an architectural movement</h2>
+
+    <div class="story-grid">
+      <div class="story-content">
+        <p class="premium-text">Founded by Dr. Amey Sheth, ARECON.in brings together architectural expertise, thoughtful design, and a commitment to creating spaces that make a meaningful difference.</p>
+        <p class="premium-text" style="margin-top: 1.5rem;">With a strong specialization in healthcare architecture, our practice delivers integrated solutions across medical planning, architectural design, project management, and execution, from concept to completion.</p>
+        <p class="premium-text" style="margin-top: 1.5rem;">With experience spanning India, the UK, East Africa, and the UAE, we design spaces that balance functionality, innovation, and human experience, transforming every project into an opportunity to create lasting value.</p>
+      </div>
+
+      <div class="story-visual">
+        <div class="story-image">
+          <img src="assets/images/projects/cozzet-hotel.jpg" alt="Cozzet Hotel - Luxury Hospitality Design" loading="lazy">
+        </div>
+        <div class="story-image">
+          <img src="assets/images/projects/dandi-kurti-museum.jpg" alt="Dandi Kurti Museum - Civic & Cultural Project" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY SECTION -->
+<section class="about-section dark">
+  <div class="section-container">
+    <span class="eyebrow">Our Philosophy</span>
+    <h2 class="premium-heading">Design with intent, built with rigor</h2>
+
+    <div class="story-grid" style="margin-top: 3rem;">
+      <div class="story-content">
+        <p class="premium-text">We believe the most powerful architecture merges functionality with emotional resonance. Spaces that move people. Designs that endure.</p>
+        <p class="premium-text" style="margin-top: 1.5rem;">Every project begins with understanding — site analysis, climate patterns, cultural context, user needs. We don't impose solutions; we discover them through rigorous thinking and creative exploration.</p>
+        <p class="premium-text" style="margin-top: 1.5rem;">From concept through construction, we maintain obsessive attention to detail. Technical excellence, sustainable strategies, and beautiful proportions aren't nice-to-haves — they're foundational.</p>
+      </div>
+
+      <div class="story-visual">
+        <div class="story-image">
+          <img src="assets/images/projects/healthcare/sankalp/fch1.jpg" alt="Homi Bhabha Cancer Hospital - Healthcare Excellence" loading="lazy">
+        </div>
+        <div class="story-image">
+          <img src="assets/images/projects/lead-school.jpg" alt="Lead School - Educational Campus Design" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES SECTION -->
+<section class="about-section light">
+  <div class="section-container">
+    <span class="eyebrow">Core Values</span>
+    <h2 class="premium-heading">Principles that define our work</h2>
+
+    <div class="values-premium-grid">
+      <div class="value-premium-card">
+        <span class="num">01</span>
+        <h3>Contextual Rigour</h3>
+        <p>Every project begins with understanding its place. Climate, culture, constraints, and character inform our approach. We don't apply templates — we discover solutions specific to each site.</p>
+      </div>
+
+      <div class="value-premium-card">
+        <span class="num">02</span>
+        <h3>Technical Excellence</h3>
+        <p>Design is only as powerful as its execution. We maintain obsessive attention to craft from concept through construction, ensuring technical integrity at every scale.</p>
+      </div>
+
+      <div class="value-premium-card">
+        <span class="num">03</span>
+        <h3>Sustainability First</h3>
+        <p>Climate-responsive design, material honesty, and resource efficiency aren't afterthoughts — they're foundational. Built to endure with minimal environmental impact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="about-section light" style="padding: 6rem 0;">
+  <div class="section-container" style="text-align: center;">
+    <span class="eyebrow" style="justify-content: center;">Let's Create Together</span>
+    <h2 class="premium-heading" style="margin-top: 1.5rem;">Ready to shape the future?</h2>
+    <p class="premium-text" style="margin: 1.5rem auto 2rem; max-width: 600px;">We're always interested in discussing new projects with clients and collaborators who share our passion for context-sensitive design and technical excellence.</p>
+    <a href="contact.html" class="btn">Start a Conversation
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-mark">ARECON.in</span>
+        <p>A Mumbai-based architecture and interior design practice delivering residential, civic, hospitality and masterplanning work across India since 1994.</p>
+        <div class="social-row">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zM8.5 8h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg></a>
+
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="solutions.html">Architecture</a></li>
+          <li><a href="solutions.html">Interior Design</a></li>
+          <li><a href="solutions.html">Masterplanning</a></li>
+          <li><a href="solutions.html">Project Management</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address>1106, Haware infotech Park, sector 30A,<br>Vashi, Navi Mumbai 400703</address>
+        <ul>
+          <li><a href="mailto:ops@shetharchitects.in">ops@shetharchitects.in</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> ARECON.in All rights reserved.</span>
+      <div class="legal-links"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+// Premium Scroll Reveal Animations
+(function() {
+  // Mark sections and elements for scroll reveal
+  const sections = document.querySelectorAll('.about-section');
+  const storyGrid = document.querySelectorAll('.story-grid, .values-premium-grid, .premium-timeline, .stats-grid-premium');
+
+  // Add data attributes for animation
+  sections.forEach(section => {
+    section.setAttribute('data-scroll-reveal', '');
+  });
+
+  storyGrid.forEach(grid => {
+    grid.setAttribute('data-scroll-stagger', '');
+  });
+
+  // Intersection Observer for smooth scroll triggers
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Add small delay for premium feel
+        requestAnimationFrame(() => {
+          entry.target.classList.add('is-visible');
+        });
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all reveal elements
+  document.querySelectorAll('[data-scroll-reveal], [data-scroll-stagger]').forEach(element => {
+    revealObserver.observe(element);
+  });
+
+  // Smooth parallax on scroll for enhanced storytelling
+  let scrollPos = 0;
+  window.addEventListener('scroll', () => {
+    scrollPos = window.scrollY;
+
+    // Subtle parallax for story images
+    document.querySelectorAll('.story-image').forEach((img, index) => {
+      const offset = scrollPos * 0.05 * (index % 2 === 0 ? 1 : -1);
+      img.style.transform = `translateY(${offset}px) rotateZ(${index % 2 === 0 ? '-2deg' : '2deg'})`;
+    });
+  }, { passive: true });
+
+  // Back-to-top scroll behavior
+  const backToTop = document.querySelector('.back-to-top');
+  if (backToTop) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) {
+        backToTop.style.opacity = '1';
+        backToTop.style.pointerEvents = 'auto';
+      } else {
+        backToTop.style.opacity = '0';
+        backToTop.style.pointerEvents = 'none';
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+</script>
+
+<script src="js/main.js?v=20260921115702"></script>
+</body>
+</html>
